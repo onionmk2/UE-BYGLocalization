@@ -6,7 +6,7 @@
 
 UBYGLocalizationSettings::UBYGLocalizationSettings( const FObjectInitializer& ObjectInitializer )
 {
-	PrimaryLocalizationDirectory.Path = "/Localization/";
+	PrimaryLocalizationDirectory.Path = "Localization";
 }
 
 
@@ -33,6 +33,18 @@ bool UBYGLocalizationSettings::Validate()
 		bAnyChanges = true;
 	}
 
+	if ( PrimaryLocalizationDirectory.Path.StartsWith( TEXT( "/" ) ) )
+	{
+		PrimaryLocalizationDirectory.Path = PrimaryLocalizationDirectory.Path.RightChop( 1 );
+		bAnyChanges = true;
+	}
+
+	if ( PrimaryLocalizationDirectory.Path.StartsWith( TEXT( "Game/" ) ) )
+	{
+		PrimaryLocalizationDirectory.Path = PrimaryLocalizationDirectory.Path.RightChop( 5 );
+		bAnyChanges = true;
+	}
+
 	if ( bUpdateLocsWithCommandLineFlag && CommandLineFlag.IsEmpty() )
 	{
 		CommandLineFlag = "UpdateLoc";
@@ -46,7 +58,7 @@ bool UBYGLocalizationSettings::Validate()
 void UBYGLocalizationSettings::PostEditChangeProperty( struct FPropertyChangedEvent& PropertyChangedEvent )
 {
 	// Rescan for loc files if any path-related properties change
-	if ( 
+	if (
 		( PropertyChangedEvent.GetPropertyName() == GET_MEMBER_NAME_CHECKED( UBYGLocalizationSettings, PrimaryLanguageCode ) )
 		|| ( PropertyChangedEvent.GetPropertyName() == GET_MEMBER_NAME_CHECKED( UBYGLocalizationSettings, PrimaryLocalizationDirectory ) )
 		|| ( PropertyChangedEvent.GetPropertyName() == GET_MEMBER_NAME_CHECKED( UBYGLocalizationSettings, AdditionalLocalizationDirectories ) )
@@ -57,6 +69,7 @@ void UBYGLocalizationSettings::PostEditChangeProperty( struct FPropertyChangedEv
 		|| ( PropertyChangedEvent.GetPropertyName() == GET_MEMBER_NAME_CHECKED( UBYGLocalizationSettings, AllowedExtensions ) )
 		)
 	{
+		Validate();
 		FBYGLocalizationModule::Get().ReloadLocalizations();
 	}
 
