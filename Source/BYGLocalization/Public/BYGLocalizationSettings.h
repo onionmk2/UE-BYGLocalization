@@ -55,10 +55,10 @@ struct FBYGPath
 			Path.Path = FPaths::ProjectDir();
 			break;
 		case EBYGPathRoot::UserDir:
-			Path.Path = FPlatformProcess::UserDir(); 
+			Path.Path = FPlatformProcess::UserDir();
 			break;
 		case EBYGPathRoot::UserSettingsDir:
-			Path.Path = FPlatformProcess::UserSettingsDir(); 
+			Path.Path = FPlatformProcess::UserSettingsDir();
 			break;
 		}
 		Path.Path = FPaths::Combine( Path.Path, RelativePath );
@@ -115,10 +115,6 @@ public:
 	// Creates a backup of the original file when changing any localization files
 	UPROPERTY( config, EditAnywhere, Category = "File Settings" )
 	bool bCreateBackup = true;
-
-	// If true, the CSV update process ignores if a file is marked "read-only" and will overwrite it anyway
-	UPROPERTY( config, EditAnywhere, AdvancedDisplay, Category = "File Settings" )
-	bool bAllowOverwriteReadOnlyFiles = false;
 
 	// This can be used to differentiate between multiple localizations of the same language.
 	// e.g. Adding "_meta_author,Fan A,," key to the loc_fr.csv localization file will result in the language showing up as French (Fan A)
