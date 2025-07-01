@@ -6,7 +6,7 @@
 #include "CoreUObject/Public/UObject/NoExportTypes.h"
 #include "Engine/EngineTypes.h"
 #include "Misc/Paths.h"
-#include "Windows/WindowsPlatformProcess.h"
+#include "HAL/PlatformProcess.h"
 #include "BYGLocalizationSettings.generated.h"
 
 UENUM()
