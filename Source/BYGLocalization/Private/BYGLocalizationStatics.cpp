@@ -38,7 +38,7 @@ bool GetTextFromTable( const FString& TableName, const FString& Key, FText& Foun
 		}
 		else
 		{
-			UE_LOG( LogBYGLocalization, Error, TEXT( "Could not find key '%s' in string table '%s'" ), *TableName, *Key );
+			UE_LOG( LogBYGLocalization, Error, TEXT( "Could not find key '%s' in string table '%s'" ), *Key, *TableName );
 		}
 	}
 	else
