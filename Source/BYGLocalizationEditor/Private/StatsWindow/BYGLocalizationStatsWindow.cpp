@@ -95,7 +95,6 @@ void SBYGLocalizationStatsWindow::Construct( const FArguments& InArgs )
 			[
 				// The list view being tested
 				SAssignNew( StatsList, SListView< TSharedPtr<FBYGLocalizationStatEntry> > )
-				.ItemHeight( 24 )
 				.ListItemsSource( &Items )
 				.OnGenerateRow( this, &SBYGLocalizationStatsWindow::OnGenerateWidgetForList )
 				.OnContextMenuOpening( this, &SBYGLocalizationStatsWindow::GetListContextMenu )
