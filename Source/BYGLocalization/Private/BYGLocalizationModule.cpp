@@ -85,6 +85,11 @@ void FBYGLocalizationModule::AddReferencedObjects( FReferenceCollector& Collecto
 	//Collector.AddReferencedObject( Loc );
 }
 
+FString FBYGLocalizationModule::GetReferencerName() const
+{
+	return TEXT("FBYGLocalizationModule");
+}
+
 #undef LOCTEXT_NAMESPACE
 
 IMPLEMENT_MODULE( FBYGLocalizationModule, BYGLocalization )

@@ -26,6 +26,8 @@ public:
 
 	virtual void AddReferencedObjects( FReferenceCollector& Collector ) override;
 
+	virtual FString GetReferencerName() const override;
+
 	inline class UBYGLocalization* GetLocalization() { return Loc.Get(); }
 
 protected:
