@@ -3,7 +3,6 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "CoreUObject/Public/UObject/NoExportTypes.h"
 #include "Engine/EngineTypes.h"
 #include "Misc/Paths.h"
 #include "HAL/PlatformProcess.h"
