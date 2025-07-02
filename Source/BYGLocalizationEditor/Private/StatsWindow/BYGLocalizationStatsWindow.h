@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "EditorStyleSet.h"
 #include "SlateFwd.h"
 #include "Widgets/DeclarativeSyntaxSupport.h"
 #include "Input/Reply.h"
@@ -149,8 +150,8 @@ public:
 		if ( ColumnName == TEXT( "PrimaryLanguage" ) )
 		{
 			return SNew( STextBlock )
-			.Font( FEditorStyle::Get().GetFontStyle( "FontAwesome.11" ) )
-			.TextStyle(FEditorStyle::Get(), "ContentBrowser.TopBar.Font")
+			.Font( FAppStyle::Get().GetFontStyle( "FontAwesome.11" ) )
+			.TextStyle(FAppStyle::Get(), "ContentBrowser.TopBar.Font")
 			.Text( this, &SBYGEntryTableRow::GetPrimaryLanguage );
 		}
 		else if ( ColumnName == TEXT( "LocaleCode" ) )
