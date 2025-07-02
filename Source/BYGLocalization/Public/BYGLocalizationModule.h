@@ -13,7 +13,7 @@ public:
 	virtual void StartupModule() override;
 	virtual void ShutdownModule() override;
 
-	bool SupportsDynamicReloading() override { return true; }
+	virtual bool SupportsDynamicReloading() override { return true; }
 
 	void ReloadLocalizations();
 
