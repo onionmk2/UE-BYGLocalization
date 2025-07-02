@@ -62,7 +62,7 @@ FText UBYGLocalizationStatics::GetGameText( const FString& Key )
 	bool bFound = GetTextFromTable( Settings->StringtableID, Key, Result );
 	if ( !bFound )
 	{
-		// Fall back to English if we're not using English and we didn't get the key in the non-English locale  
+		// Fall back to English if we're not using English and we didn't get the key in the non-English locale
 		bFound = GetTextFromTable( Settings->PrimaryLanguageCode, Key, Result );
 	}
 	return Result;
@@ -77,7 +77,7 @@ bool UBYGLocalizationStatics::SetLocalizationFromFile( const FString& Path )
 		FName( *Settings->StringtableID ),
 		Settings->StringtableNamespace,
 		Path,
-		FPaths::ProjectContentDir() 
+		FPaths::ProjectContentDir()
 	);
 
 #if !WITH_EDITOR

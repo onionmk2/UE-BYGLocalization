@@ -36,7 +36,7 @@ public:
 	bool bIsRefreshing = false;
 };
 
-class SBYGLocalizationStatsWindow 
+class SBYGLocalizationStatsWindow
 	: public SCompoundWidget
 {
 
